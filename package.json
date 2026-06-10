@@ -1,0 +1,17 @@
+{
+  "name": "api-mini-blog",
+  "version": "1.0.0",
+  "description": "proyecto-final-modulo-02",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "candelaria ferrari",
+  "license": "ISC",
+  "dependencies": {
+    "psl": "^1.15.0"
+  }
+}
