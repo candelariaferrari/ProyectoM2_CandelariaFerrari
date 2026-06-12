@@ -38,19 +38,13 @@ const createAuthor = async (req, res) => {
   try {
     const { name, email, bio } = req.body;
 
-    if (!name || !email || !bio) {
-      return res.status(400).json({
-        message: "Todos los campos son obligatorios",
-      });
-    }
-
-    const newAuthor = await authorsService.createAuthor(
+    const author = await authorsService.createAuthor(
       name,
       email,
       bio
     );
 
-    res.status(201).json(newAuthor);
+    res.status(201).json(author);
   } catch (error) {
     res.status(500).json({
       error: error.message,
@@ -69,13 +63,11 @@ const editAuthor = async (req, res) => {
       email,
       bio
     );
-
     if (!author) {
       return res.status(404).json({
         message: "Autor no encontrado",
       });
-    }
-
+    }  
     res.status(200).json(author);
   } catch (error) {
     res.status(500).json({
