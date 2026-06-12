@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "index.js",
-    "dev": "nodemon server.js"
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
   },
   "author": "candelaria ferrari",
   "license": "ISC",
