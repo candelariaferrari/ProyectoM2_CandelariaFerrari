@@ -10,7 +10,7 @@ router.get("/", getAuthors);
 
 router.get("/:id",validateId, getAuthor);
 
-router.post("/",validateId, validateCreateAuthor, createAuthor);
+router.post("/", validateCreateAuthor, createAuthor);
 
 router.put("/:id",validateId, validateEditAuthor, editAuthor);
 
