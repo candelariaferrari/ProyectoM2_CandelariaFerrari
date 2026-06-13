@@ -47,6 +47,11 @@ const createAuthor = async (req, res) => {
 
     res.status(201).json(author);
   } catch (error) {
+    if (error.code === '23505') {
+      return res.status(409).json({ 
+        message: "El email ya está registrado" 
+      });
+    };
     res.status(500).json({
       error: error.message,
     });
@@ -71,6 +76,11 @@ const editAuthor = async (req, res) => {
     }  
     res.status(200).json(author);
   } catch (error) {
+    if (error.code === '23505') {
+      return res.status(409).json({ 
+        message: "El email ya está registrado" 
+      });
+    };
     res.status(500).json({
       error: error.message,
     });
@@ -89,10 +99,7 @@ const deleteAuthor = async (req, res) => {
       });
     }
 
-    res.status(200).json({
-      message: "Autor eliminado correctamente",
-      author,
-    });
+    res.status(204).send();
   } catch (error) {
     res.status(500).json({
       error: error.message,

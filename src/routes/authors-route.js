@@ -8,12 +8,12 @@ const router = express.Router();
 
 router.get("/", getAuthors);
 
-router.get("/:id",validateId, getAuthor);
+router.get("/:id",validateId(), getAuthor);
 
 router.post("/", validateCreateAuthor, createAuthor);
 
-router.put("/:id",validateId, validateEditAuthor, editAuthor);
+router.put("/:id",validateId(), validateEditAuthor, editAuthor);
 
-router.delete("/:id",validateId, deleteAuthor);
+router.delete("/:id",validateId(), deleteAuthor);
 
 module.exports = router;
