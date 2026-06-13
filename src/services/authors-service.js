@@ -3,12 +3,11 @@ const pool = require("../database/database");
 const getAuthors = async () => {
   const result = await pool.query("SELECT * FROM authors");
   return result.rows;
-}
+};
 const getAuthorById = async (id) => {
-  const result = await pool.query("SELECT * FROM authors WHERE id = $1",
-  [id]);
+  const result = await pool.query("SELECT * FROM authors WHERE id = $1", [id]);
   return result.rows[0];
-}
+};
 
 const createAuthor = async (name, email, bio) => {
   const result = await pool.query(
@@ -51,10 +50,13 @@ const deleteAuthor = async (id) => {
 
   return result.rows[0];
 };
+
+
+
 module.exports = {
   getAuthors,
   getAuthorById,
-  createAuthor, 
+  createAuthor,
   editAuthor,
-  deleteAuthor
+  deleteAuthor,
 };

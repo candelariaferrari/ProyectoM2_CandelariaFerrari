@@ -88,10 +88,31 @@ const deletePost = async (req, res) => {
   }
 };
 
+const getPostsByAuthor = async (req, res) => {
+  try {
+    const { authorId } = req.params;
+
+    const postsAuthorId = await postsService.getPostsByAuthor(authorId)
+
+    if (postsAuthorId.length === 0) {
+      return res.status(404).json({
+        message: "Post no encontrado",
+      });
+    }
+
+    res.json(postsAuthorId);
+  } catch (error) {
+    res.status(500).json({
+      error: error.message,
+    });
+  }
+}
+
 module.exports = {
   getPosts,
   getPost,
   createPost,
   editPost,
   deletePost,
+  getPostsByAuthor
 };
