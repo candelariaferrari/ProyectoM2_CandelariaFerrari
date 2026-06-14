@@ -6,6 +6,11 @@ const validateCreatePost = (req, res, next) => {
       message: "Todos los campos son obligatorios",
     });
   }
+  if (typeof author_id !== "number") {
+    return res.status(400).json({
+      message: "Author_id tiene que ser un número y un id que exista",
+    });
+  }
   if (typeof published !== "boolean") {
     return res.status(400).json({
       message: "Published es obligatorio y debe ser true o false",
