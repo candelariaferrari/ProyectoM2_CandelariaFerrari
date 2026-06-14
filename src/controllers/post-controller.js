@@ -88,7 +88,7 @@ const getPostsByAuthor = async (req, res) => {
 
     if (postsAuthorId.length === 0) {
       return res.status(404).json({
-        message: "Post no encontrado",
+        message: "Autor no encontrado",
       });
     }
 

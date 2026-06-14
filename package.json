@@ -14,10 +14,13 @@
   "author": "candelaria ferrari",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "pg": "^8.21.0",
-    "psl": "^1.15.0"
+    "psl": "^1.15.0",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "jest": "^30.4.2",
