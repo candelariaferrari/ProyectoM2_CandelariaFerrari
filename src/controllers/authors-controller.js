@@ -8,9 +8,7 @@ const getAuthors = async (req, res) => {
 
     res.status(200).json(authors);
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -29,9 +27,7 @@ const getAuthor = async (req, res) => {
 
     res.json(author);
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -52,9 +48,7 @@ const createAuthor = async (req, res) => {
         message: "El email ya está registrado" 
       });
     };
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -81,9 +75,7 @@ const editAuthor = async (req, res) => {
         message: "El email ya está registrado" 
       });
     };
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -101,9 +93,7 @@ const deleteAuthor = async (req, res) => {
 
     res.status(204).send();
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 

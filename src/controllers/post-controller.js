@@ -6,9 +6,7 @@ const getPosts = async (req, res) => {
 
     res.status(200).json(posts);
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -26,9 +24,7 @@ const getPost = async (req, res) => {
 
     res.json(post);
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -45,9 +41,7 @@ const createPost = async (req, res) => {
         message: "El author_id no existe" 
       });
     }
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -64,9 +58,7 @@ const editPost = async (req, res) => {
     }
     res.status(200).json(post);
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -84,9 +76,7 @@ const deletePost = async (req, res) => {
 
     res.status(204).send();
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 };
 
@@ -104,9 +94,7 @@ const getPostsByAuthor = async (req, res) => {
 
     res.json(postsAuthorId);
   } catch (error) {
-    res.status(500).json({
-      error: error.message,
-    });
+    next(error);
   }
 }
 
