@@ -1,2 +1,250 @@
 # ProyectoM2_CandelariaFerrari
-Proyecto final integrador del modulo 02  Backend en Soy Henry
+Proyecto integrador del modulo 02 en Soy Henry
+
+# 📒 API MiniBlog — DevSpark
+
+![Preview del proyecto](./src/assets/api-miniblog.png)
+
+
+---
+
+## 📋 Descripción
+
+MiniBlog es una API REST desarrollada para **DevSpark**, una startup que busca construir una plataforma de contenidos simple y escalable.
+
+La API permite gestionar autores y publicaciones mediante operaciones CRUD completas, utilizando Node.js, Express y PostgreSQL. Además, cuenta con documentación OpenAPI y pruebas automatizadas.
+
+Proyecto integrador del módulo 02 — Soy Henry.
+
+---
+
+## ✨ Funcionalidades
+
+### Gestión de autores
+- ✅ Crear autores.
+- ✅ Obtener todos los autores.
+- ✅ Obtener un autor por ID.
+- ✅ Actualizar autores existentes.
+- ✅ Eliminar autores.
+
+### Gestión de posts
+- ✅ Crear publicaciones.
+- ✅ Obtener todas las publicaciones.
+- ✅ Obtener una publicación por ID.
+- ✅ Obtener publicaciones de un autor específico.
+- ✅ Actualizar publicaciones.
+- ✅ Eliminar publicaciones.
+
+### Validaciones implementadas
+- Authors:
+    - Nombre obligatorio.
+    - Email obligatorio.
+    - Email único.
+    - Bio obligatoria.
+- Posts: 
+    - Title obligatorio.
+    - Content obligatorio.
+    - Author_id obligatorio.
+    - Author_id debe ser numérico.
+    - Published obligatorio.
+    - Published debe ser booleano.
+
+### Respuestas HTTP:
+    - 200 OK
+    - 201 Created
+    - 400 Bad Request
+    - 404 Not Found
+    - 409 Conflict
+    - 500 Internal Server Error
+---
+
+## 🖥️ Manual de usuario
+Una vez iniciada la aplicación, los endpoints pueden consumirse desde cualquier cliente HTTP como:
+
+- Postman
+- Insomnia
+- Thunder Client (Utilizada en este proyecto)
+
+### ¿Como crear un autor?
+POST /api/authors
+
+{
+  "name": "Candelaria Ferrari",
+  "email": "candelaria@example.com",
+  "bio": "Frontend Developer experta en React"
+}
+### ¿Como crear un post?
+POST /api/posts
+
+{
+  "title": "Mi primer post",
+  "content": "Contenido del post",
+  "author_id": 1,
+  "published": true
+}
+
+La documentación completa se encuentra disponible mediante Swagger/OpenAPI.
+---
+
+## 🛠️ Decisiones técnicas
+### Arquitectura en capas
+
+El proyecto fue organizado siguiendo una estructura de responsabilidades separadas:
+
+    - Routes: definición de endpoints.
+    - Controllers: manejo de requests y responses.
+    - Services: acceso a datos y lógica de negocio.
+    - Validators: validaciones de entrada.
+    - Database: conexión a PostgreSQL.
+
+
+### PostgreSQL
+Se utilizó PostgreSQL como base de datos relacional debido a:
+
+   - Soporte de relaciones mediante Foreign Keys.
+   - Integridad de datos.
+   - Escalabilidad.
+   - Compatibilidad con Node.js mediante la librería pg.
+
+### Validaciones
+
+Las validaciones se implementaron mediante middlewares para mantener los controladores limpios y reutilizables.
+
+### OpenAPI
+
+La documentación fue desarrollada utilizando OpenAPI 3.0 para facilitar la exploración y prueba de endpoints.
+
+---
+
+## 🚀 Cómo ejecutar el proyecto en local
+
+```bash
+# 1. Cloná el repositorio
+git clone https://github.com/candelariaferrari/ProyectoM2_CandelariaFerrari.git
+
+# 2. Ingresar al proyecto
+cd ProyectoM2_CandelariaFerrari
+
+# 3. Instalar dependencias
+npm install
+
+# 4. Crear archivo .env
+Tomar como referencia el archivo .env.example.
+
+PORT=your_port
+DB_PORT=5432
+DB_HOST=localhost
+DB_NAME=name_database
+DB_USER=your_user
+DB_PASSWORD=your_password
+
+# 5. Crear la base de datos
+- Ejecutar los scripts: 
+psql -U tu_usuario -d tu_base_de_datos -f sql/setup.sql
+psql -U tu_usuario -d tu_base_de_datos -f sql/seed.sql
+
+# 6. Iniciar servidor
+npm start
+o
+npm run dev
+
+
+# 7. Acceder a la documentación
+http://localhost:3000/api-docs
+
+```
+---
+
+### 📄 Documentación OpenAPI:**
+
+La API incluye documentación interactiva generada con Swagger/OpenAPI.
+
+Disponible en:
+
+http://localhost:3000/api-docs
+
+Desde allí es posible:
+    - Consultar todos los endpoints.
+    - Ver parámetros requeridos.
+    - Visualizar ejemplos de requests y responses.
+    - Ejecutar pruebas directamente desde el navegador.
+
+
+## 🧪 Tests
+```markdown
+El proyecto incluye pruebas automatizadas utilizando:
+    - Jest
+    - Supertest
+# Ejecutar
+    npm test
+
+```
+---
+## 🚀 Deploy en Railway
+
+La API está desplegada en Railway. URL pública:
+URL pública:
+
+[url]
+---
+
+###  🧰 Tech Stack
+- Node.js
+- Express.js
+- PostgreSQL
+- pg
+- Jest
+- Supertest
+- Swagger UI
+- OpenAPI 3.0
+
+
+---
+## 🗂️ Estructura del proyecto
+
+```
+📁 proyecto-m2/
+├── 📁 docs
+    └── 📄 openAPI.yaml
+    └── 📄 documentacion-ia.md
+├── 📁 sql/
+│   └── 📄 seed.sql
+    └── 📄 setup.sql
+├── 📁 src/
+│   └── 📁 assets/
+|   |   └── 📄 api-miniblog.png
+|   └── 📁 controllers/
+|   |   └── 📄 authors-controller.js
+    |   └── 📄 post-controller.js
+|   └── 📁 database/
+|   |   └── 📄 database.js
+|   └── 📁 middlewares/
+|   |   └── 📄 errorHandler.js
+|   └── 📁 routes/
+|   |   └── 📄 authors-route.js
+    |   └── 📄 post-route.js
+|   └── 📁 services/
+|   |   └── 📄 authors-service.js
+    |   └── 📄 post-service.js
+|   └── 📁 validators/
+|   |   └── 📄 authors-validator.js
+    |   └── 📄 id-validator.js
+    |   └── 📄 post-validator.js
+|   └── 📄 index.js
+|   └── 📄 server.js    
+└── 📁 test/
+    └── 📄 authors.test.js
+    └── 📄 posts.test.js
+└── 📄 .env.example
+└── 📄 package-lock.json
+└── 📄 package.json
+└── 📄 README.md
+```
+
+---
+
+## 👩‍💻 Autora
+
+**Candelaria Ferrari** — [@candeferrari](https://github.com/candeferrari)
+
+Proyecto final 02 — Soy Henry
