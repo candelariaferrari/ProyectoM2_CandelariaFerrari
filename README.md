@@ -83,14 +83,14 @@ POST /api/posts
   "published": true
 }
 
-La documentación completa se encuentra disponible mediante Swagger/OpenAPI.
+# La documentación completa se encuentra disponible mediante Swagger/OpenAPI.
+
 ---
 
 ## 🛠️ Decisiones técnicas
 ### Arquitectura en capas
 
 El proyecto fue organizado siguiendo una estructura de responsabilidades separadas:
-
     - Routes: definición de endpoints.
     - Controllers: manejo de requests y responses.
     - Services: acceso a datos y lógica de negocio.
@@ -164,6 +164,7 @@ Disponible en:
 http://localhost:3000/api-docs
 
 Desde allí es posible:
+
     - Consultar todos los endpoints.
     - Ver parámetros requeridos.
     - Visualizar ejemplos de requests y responses.
@@ -171,10 +172,11 @@ Desde allí es posible:
 
 
 ## 🧪 Tests
-```markdown
 El proyecto incluye pruebas automatizadas utilizando:
     - Jest
     - Supertest
+    
+```markdown
 # Ejecutar
     npm test
 
