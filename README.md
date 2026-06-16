@@ -200,8 +200,8 @@ El proyecto incluye pruebas automatizadas utilizando:
 ```bash
 npm test
 
-```
-```
+
+````
 ---
 ## 🚀 Deploy en Railway
 
