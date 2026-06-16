@@ -1,5 +1,4 @@
 # ProyectoM2_CandelariaFerrari
-Proyecto integrador del modulo 02 en Soy Henry
 
 # 📒 API MiniBlog — DevSpark
 
@@ -83,7 +82,7 @@ POST /api/posts
   "published": true
 }
 
-# La documentación completa se encuentra disponible mediante Swagger/OpenAPI.
+### La documentación completa se encuentra disponible mediante Swagger/OpenAPI.
 
 ---
 
@@ -91,6 +90,7 @@ POST /api/posts
 ### Arquitectura en capas
 
 El proyecto fue organizado siguiendo una estructura de responsabilidades separadas:
+
     - Routes: definición de endpoints.
     - Controllers: manejo de requests y responses.
     - Services: acceso a datos y lógica de negocio.
@@ -175,7 +175,7 @@ Desde allí es posible:
 El proyecto incluye pruebas automatizadas utilizando:
     - Jest
     - Supertest
-    
+
 ```markdown
 # Ejecutar
     npm test
