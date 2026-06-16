@@ -13,13 +13,14 @@ const PORT = process.env.PORT || 3000;
 
 // middlewares globales
 app.use(express.json());
-app.use(errorHandler);
+
 
 // ruta raíz
 app.use("/api/authors", authorsRouter);
 
 app.use("/api/posts", postsRouter);
 
+app.use(errorHandler);
 
 
 app.use(cors());
