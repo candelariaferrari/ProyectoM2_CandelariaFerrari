@@ -5,10 +5,10 @@ info:
   description: API REST para gestionar autores y posts
 
 servers:
-  - url: http://localhost:3000/api
-    description: Servidor local
   - url: https://proyectom2candelariaferrari-production.up.railway.app/api
     description: Producción
+  - url: http://localhost:3000/api
+    description: Servidor local
 paths:
   /authors:
     get:
