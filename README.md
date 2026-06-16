@@ -16,7 +16,18 @@ La API permite gestionar autores y publicaciones mediante operaciones CRUD compl
 Proyecto integrador del módulo 02 — Soy Henry.
 
 ---
+## 📊 Diagrama Entidad-Relación (ERD)
 
+La base de datos fue diseñada utilizando PostgreSQL y está compuesta por dos entidades principales:
+
+- **Authors**: almacena la información de los autores.
+- **Posts**: almacena las publicaciones creadas por cada autor.
+
+La relación entre ambas tablas es **uno a muchos (1:N)**, donde un autor puede tener múltiples publicaciones y cada publicación pertenece a un único autor.
+
+![Diagrama ERD](./src/assets/miniblog.drawio.png)
+
+---
 ## ✨ Funcionalidades
 
 ### Gestión de autores
@@ -55,6 +66,23 @@ Proyecto integrador del módulo 02 — Soy Henry.
     - 404 Not Found
     - 409 Conflict
     - 500 Internal Server Error
+
+### Endpoints
+
+| Método | Ruta                      | Descripción        |
+| ------ | ------------------------- | ------------------ |
+| GET    | `/authors`                | Listar authors     |
+| GET    | `/authors/:id`            | Obtener author     |
+| POST   | `/authors`                | Crear author       |
+| PUT    | `/authors/:id`            | Actualizar author  |
+| DELETE | `/authors/:id`            | Eliminar author    |
+| GET    | `/posts`                  | Listar posts       |
+| GET    | `/posts/:id`              | Obtener post       |
+| POST   | `/posts`                  | Crear post         |
+| PUT    | `/posts/:id`              | Actualizar post    |
+| DELETE | `/posts/:id`              | Eliminar post      |
+| GET    | `/posts/author/:authorId` | Posts de un author |
+
 ---
 
 ## 🖥️ Manual de usuario
@@ -184,10 +212,21 @@ El proyecto incluye pruebas automatizadas utilizando:
 ---
 ## 🚀 Deploy en Railway
 
-La API está desplegada en Railway. URL pública:
-URL pública:
+La API está desplegada en Railway.
 
-[url]
+- [URL base](https://proyectom2candelariaferrari-production.up.railway.app/api)
+- [Authors](https://proyectom2candelariaferrari-production.up.railway.app/api/authors)
+- [Posts](https://proyectom2candelariaferrari-production.up.railway.app/api/posts)
+- [Documentación](https://proyectom2candelariaferrari-production.up.railway.app/api-docs)
+
+### Variables de entorno en Railway
+- `DB_HOST`
+- `DB_PORT`
+- `DB_NAME`
+- `DB_USER`
+- `DB_PASSWORD`
+- `DATABASE_URL`
+
 ---
 
 ###  🧰 Tech Stack
@@ -215,6 +254,7 @@ URL pública:
 ├── 📁 src/
 │   └── 📁 assets/
 |   |   └── 📄 api-miniblog.png
+        └── 📄 miniblog.drawio.png
 |   └── 📁 controllers/
 |   |   └── 📄 authors-controller.js
     |   └── 📄 post-controller.js
