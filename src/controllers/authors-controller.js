@@ -1,7 +1,7 @@
 const authorsService = require("../services/authors-service");
 
 
-const getAuthors = async (req, res) => {
+const getAuthors = async (req, res, next) => {
   try {
     const authors =
       await authorsService.getAuthors();
@@ -12,7 +12,7 @@ const getAuthors = async (req, res) => {
   }
 };
 
-const getAuthor = async (req, res) => {
+const getAuthor = async (req, res,next) => {
   try {
     const { id } = req.params;
 
@@ -31,7 +31,7 @@ const getAuthor = async (req, res) => {
   }
 };
 
-const createAuthor = async (req, res) => {
+const createAuthor = async (req, res, next) => {
   try {
     const { name, email, bio } = req.body;
 
@@ -52,7 +52,7 @@ const createAuthor = async (req, res) => {
   }
 };
 
-const editAuthor = async (req, res) => {
+const editAuthor = async (req, res, next) => {
   try {
     const { id } = req.params;
     const { name, email, bio } = req.body;
@@ -79,7 +79,7 @@ const editAuthor = async (req, res) => {
   }
 };
 
-const deleteAuthor = async (req, res) => {
+const deleteAuthor = async (req, res, next) => {
   try {
     const { id } = req.params;
 
