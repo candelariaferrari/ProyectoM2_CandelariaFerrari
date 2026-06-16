@@ -81,7 +81,7 @@ La relación entre ambas tablas es **uno a muchos (1:N)**, donde un autor puede 
 
 ---
 
-## 🖥️ Manual de usuario
+## 👩🏻‍💻 Manual de usuario
 Una vez iniciada la aplicación, los endpoints pueden consumirse desde cualquier cliente HTTP como:
 
 - Postman
@@ -110,7 +110,7 @@ POST /api/posts
 ### La documentación completa se encuentra disponible mediante Swagger/OpenAPI.
 
 ---
-## 🚀 Cómo ejecutar el proyecto en local
+## 💻 Cómo ejecutar el proyecto en local
 
 ```bash
 # 1. Cloná el repositorio
@@ -196,9 +196,9 @@ El proyecto incluye pruebas automatizadas utilizando:
     - Jest
     - Supertest
 
-```markdown
-# Ejecutar
-    npm test
+````markdown
+```bash
+npm test
 
 ```
 ---
