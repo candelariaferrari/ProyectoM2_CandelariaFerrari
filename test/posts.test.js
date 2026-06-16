@@ -2,6 +2,20 @@ const request = require("supertest");
 const app = require("../src/server");
 const pool = require("../src/database/database");
 
+let testAuthorId;  
+beforeAll(async () => {
+  const author = await pool.query(
+    `INSERT INTO authors (name, email, bio) 
+     VALUES ('Author Test', 'test@test.com', 'Bio test') 
+     RETURNING *`
+  );
+  testAuthorId = author.rows[0].id;  // ← guardamos el id
+});
+
+afterAll(async () => {
+  await pool.query(`DELETE FROM authors WHERE email = 'test@test.com'`);
+});
+ 
 describe("GET /api/posts", () => {
   test("Devuelve status 200 y un array de posts", async () => {
     const response = await request(app).get("/api/posts");
@@ -18,7 +32,7 @@ describe('GET /api/posts/:id', () => {
       .send({
         title: 'Titulo de prueba',
         content: 'contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: true,
       });
 
@@ -31,7 +45,7 @@ describe('GET /api/posts/:id', () => {
     expect(response.body.id).toBe(postId);
     expect(response.body.title).toBe('Titulo de prueba');
     expect(response.body.content).toBe('contenido de prueba');
-    expect(response.body.author_id).toBe(2);
+    expect(response.body.author_id).toBe(testAuthorId);
     expect(response.body.published).toBe(true);
   });
 
@@ -63,7 +77,7 @@ describe('POST /api/posts', () => {
       .send({
         title: 'Titulo de prueba',
         content: 'contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: true,
       });
 
@@ -71,7 +85,7 @@ describe('POST /api/posts', () => {
     expect(response.body).toHaveProperty('id');
     expect(response.body.title).toBe('Titulo de prueba');
     expect(response.body.content).toBe('contenido de prueba');
-    expect(response.body.author_id).toBe(2);
+    expect(response.body.author_id).toBe(testAuthorId);
     expect(response.body.published).toBe(true);
   });
 
@@ -80,7 +94,7 @@ describe('POST /api/posts', () => {
       .post('/api/posts')
       .send({
         content: 'contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: true,
       });
 
@@ -95,7 +109,7 @@ describe('POST /api/posts', () => {
       .post('/api/posts')
       .send({
         title: 'Titulo de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: true,
       });
 
@@ -127,7 +141,7 @@ describe('POST /api/posts', () => {
       .send({
         title: 'Titulo de prueba',
         content: 'contenido de prueba',
-        author_id: 2
+        author_id: testAuthorId
       });
 
     expect(response.status).toBe(400);
@@ -140,7 +154,7 @@ describe('POST /api/posts', () => {
       .send({
         title: 'Titulo de prueba',
         content: 'Contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: 'hola'
       });
   
@@ -156,7 +170,7 @@ describe('POST /api/posts', () => {
       .send({
         title: 'Titulo de prueba',
         content: 'Contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: 123
       });
   
@@ -185,7 +199,7 @@ describe('PUT /api/posts/:id', () => {
       .send({
         title: 'Titulo de prueba Actualizado',
         content: 'contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: true,
       });
 
@@ -194,7 +208,7 @@ describe('PUT /api/posts/:id', () => {
       .send({
         title: created.body.title,
         content: 'contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: true,
       });
 
@@ -209,7 +223,7 @@ describe('PUT /api/posts/:id', () => {
       .send({
         title: 'Titulo de prueba',
         content: 'contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: true,
       });
 
@@ -224,7 +238,7 @@ describe('DELETE /api/posts/:id', () => {
       .send({
         title: 'Titulo de prueba A ELIMINAR',
         content: 'contenido de prueba',
-        author_id: 2,
+        author_id: testAuthorId,
         published: true,
       });
 
