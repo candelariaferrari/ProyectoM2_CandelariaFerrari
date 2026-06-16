@@ -7,7 +7,8 @@ info:
 servers:
   - url: http://localhost:3000/api
     description: Servidor local
-
+  - url: https://proyectom2candelariaferrari-production.up.railway.app/api
+    description: Producción
 paths:
   /authors:
     get:
