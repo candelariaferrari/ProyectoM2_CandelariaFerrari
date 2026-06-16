@@ -1,10 +1,6 @@
 # ProyectoM2_CandelariaFerrari
 
 # 📒 API MiniBlog — DevSpark
-
-![Preview del proyecto](./src/assets/api-miniblog.png)
-
-
 ---
 
 ## 📋 Descripción
@@ -94,56 +90,26 @@ Una vez iniciada la aplicación, los endpoints pueden consumirse desde cualquier
 
 ### ¿Como crear un autor?
 POST /api/authors
-
+```markdown
 {
   "name": "Candelaria Ferrari",
   "email": "candelaria@example.com",
   "bio": "Frontend Developer experta en React"
 }
+```
 ### ¿Como crear un post?
 POST /api/posts
-
+```markdown
 {
   "title": "Mi primer post",
   "content": "Contenido del post",
   "author_id": 1,
   "published": true
 }
-
+```
 ### La documentación completa se encuentra disponible mediante Swagger/OpenAPI.
 
 ---
-
-## 🛠️ Decisiones técnicas
-### Arquitectura en capas
-
-El proyecto fue organizado siguiendo una estructura de responsabilidades separadas:
-
-    - Routes: definición de endpoints.
-    - Controllers: manejo de requests y responses.
-    - Services: acceso a datos y lógica de negocio.
-    - Validators: validaciones de entrada.
-    - Database: conexión a PostgreSQL.
-
-
-### PostgreSQL
-Se utilizó PostgreSQL como base de datos relacional debido a:
-
-   - Soporte de relaciones mediante Foreign Keys.
-   - Integridad de datos.
-   - Escalabilidad.
-   - Compatibilidad con Node.js mediante la librería pg.
-
-### Validaciones
-
-Las validaciones se implementaron mediante middlewares para mantener los controladores limpios y reutilizables.
-
-### OpenAPI
-
-La documentación fue desarrollada utilizando OpenAPI 3.0 para facilitar la exploración y prueba de endpoints.
-
----
-
 ## 🚀 Cómo ejecutar el proyecto en local
 
 ```bash
@@ -181,10 +147,36 @@ npm run dev
 http://localhost:3000/api-docs
 
 ```
+----
+
+## 🛠️ Decisiones técnicas
+### Arquitectura en capas
+
+El proyecto fue organizado siguiendo una estructura de responsabilidades separadas:
+
+    - Routes: definición de endpoints.
+    - Controllers: manejo de requests y responses.
+    - Services: acceso a datos y lógica de negocio.
+    - Validators: validaciones de entrada.
+    - Database: conexión a PostgreSQL.
+
+
+### PostgreSQL
+Se utilizó PostgreSQL como base de datos relacional debido a:
+
+   - Soporte de relaciones mediante Foreign Keys.
+   - Integridad de datos.
+   - Escalabilidad.
+   - Compatibilidad con Node.js mediante la librería pg.
+
+### Validaciones
+
+Las validaciones se implementaron mediante middlewares para mantener los controladores limpios y reutilizables.
+
 ---
 
 ### 📄 Documentación OpenAPI:**
-
+La documentación fue desarrollada utilizando OpenAPI 3.0 para facilitar la exploración y prueba de endpoints.
 La API incluye documentación interactiva generada con Swagger/OpenAPI.
 
 Disponible en:
@@ -227,6 +219,15 @@ La API está desplegada en Railway.
 - `DB_PASSWORD`
 - `DATABASE_URL`
 
+### Guía de deploy en Railway
+
+1. Crear cuenta en [Railway](https://railway.app)
+2. Crear nuevo proyecto y agregar servicio **PostgreSQL**
+3. Conectar el repositorio de GitHub
+4. Agregar las variables de entorno en el servicio de Node.js
+5. Ejecutar los scripts SQL desde la consola de Railway
+6. Railway despliega automáticamente con cada push a main
+
 ---
 
 ###  🧰 Tech Stack
@@ -253,8 +254,7 @@ La API está desplegada en Railway.
     └── 📄 setup.sql
 ├── 📁 src/
 │   └── 📁 assets/
-|   |   └── 📄 api-miniblog.png
-        └── 📄 miniblog.drawio.png
+|       └── 📄 miniblog.drawio.png
 |   └── 📁 controllers/
 |   |   └── 📄 authors-controller.js
     |   └── 📄 post-controller.js
