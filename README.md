@@ -210,7 +210,7 @@ La API está desplegada en Railway.
 - [URL base](https://proyectom2candelariaferrari-production.up.railway.app)
 - [Authors](https://proyectom2candelariaferrari-production.up.railway.app/api/authors)
 - [Posts](https://proyectom2candelariaferrari-production.up.railway.app/api/posts)
-- [Documentación](https://proyectom2candelariaferrari-production.up.railway.app/api-docs)
+- [Api MiniBlog](https://proyectom2candelariaferrari-production.up.railway.app/api-docs)
 
 ### Variables de entorno en Railway
 - `DB_HOST`
