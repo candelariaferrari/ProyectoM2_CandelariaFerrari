@@ -207,7 +207,7 @@ npm test
 
 La API está desplegada en Railway.
 
-- [URL base](https://proyectom2candelariaferrari-production.up.railway.app/api)
+- [URL base](https://proyectom2candelariaferrari-production.up.railway.app)
 - [Authors](https://proyectom2candelariaferrari-production.up.railway.app/api/authors)
 - [Posts](https://proyectom2candelariaferrari-production.up.railway.app/api/posts)
 - [Documentación](https://proyectom2candelariaferrari-production.up.railway.app/api-docs)
