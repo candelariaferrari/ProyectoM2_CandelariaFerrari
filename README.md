@@ -285,6 +285,10 @@ La API está desplegada en Railway.
 ```
 
 ---
+### Documentación IA
+[Documentacion IA](https://github.com/candelariaferrari/ProyectoM2_CandelariaFerrari/blob/main/docs/documentacion-IA.md)
+
+---
 
 ## 👩‍💻 Autora
 
